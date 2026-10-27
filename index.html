@@ -3,188 +3,653 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SINGULAB.AI — Domain for Sale</title>
-    <meta name="description" content="SINGULAB.AI is available for acquisition.">
-
+    <title>SINGULAB — The Future Remembers</title>
+    <meta name="description" content="SINGULAB is an 18+ science fiction series set in Thessaloniki, 2038. A laboratory, six presences, and a future that remembers.">
+    <meta name="theme-color" content="#f4f7f9">
+    <meta property="og:title" content="SINGULAB — The Future Remembers">
+    <meta property="og:description" content="An 18+ science fiction series set in Thessaloniki, 2038.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://singulab.ai/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f4f7f9'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%230a5564' stroke-width='1.5'/%3E%3Cpath d='M9 16h14' stroke='%231493a8' stroke-width='1.5'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #f4f7f9;
+            --surface: #ffffff;
+            --ink: #12232c;
+            --body: #24343d;
+            --muted: #3c5160;
+            --accent: #0b5c6c;
+            --line: #1493a8;
+            --hairline: #d3e1e7;
+            --panel: #eef6f8;
+            --glow: rgba(20, 147, 168, 0.45);
+            --font: "Outfit", "Segoe UI", Helvetica, Arial, sans-serif;
+            --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+            --header: 4.5rem;
+        }
+
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            margin: 0;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
+            color: var(--body);
             background:
-                radial-gradient(circle at center, #101820 0%, #06090c 45%, #020304 100%);
-
-            color: #f4f7f8;
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Helvetica,
-                Arial,
-                sans-serif;
-
-            text-align: center;
+                radial-gradient(ellipse 80% 42% at 50% -8%, rgba(20, 147, 168, 0.14), transparent 58%),
+                var(--bg);
+            font-family: var(--font);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color-scheme: light;
         }
 
-        .container {
-            width: 90%;
-            max-width: 760px;
-            padding: 60px 20px;
+        ::selection {
+            background: #c5eef3;
+            color: var(--ink);
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        a:focus-visible,
+        .skip:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .skip {
+            position: absolute;
+            left: 1rem;
+            top: -4rem;
+            z-index: 20;
+            padding: 0.6rem 0.9rem;
+            background: var(--ink);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .skip:focus {
+            top: 0.75rem;
+        }
+
+        .wrap {
+            width: min(1120px, calc(100% - 2.5rem));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            height: var(--header);
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(14px);
+            background: rgba(244, 247, 249, 0.97);
+            border-bottom: 1px solid rgba(18, 35, 44, 0.08);
+        }
+
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+        }
+
+        .mark svg {
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.35rem;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 0.35em;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: calc(100vh - var(--header));
+            min-height: calc(100svh - var(--header));
+            padding: 4.5rem 0 5rem;
+        }
+
+        .eyebrow,
+        .index,
+        .role,
+        .status,
+        .footer-meta {
+            font-family: var(--mono);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            margin: 0 0 1.4rem;
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--ink);
+            font-weight: 300;
+            font-size: clamp(3.4rem, 9vw, 7.4rem);
+            line-height: 0.9;
+            letter-spacing: 0.12em;
+        }
+
+        .filament {
+            width: 4.5rem;
+            height: 1px;
+            margin: 1.7rem 0 1.45rem;
+            background: var(--line);
+            box-shadow: 0 0 12px var(--glow);
+        }
+
+        .tagline {
+            margin: 0;
+            color: var(--ink);
+            font-size: clamp(1.45rem, 2.5vw, 2rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .dek {
+            max-width: 34rem;
+            margin: 1rem 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .briefing {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 2.2rem;
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-underline-offset: 0.28em;
+        }
+
+        .briefing span {
+            transition: transform 0.25s ease;
+        }
+
+        .briefing:hover span {
+            transform: translateX(4px);
+        }
+
+        .section {
+            padding: 4.5rem 0;
+            border-top: 1px solid var(--hairline);
+            scroll-margin-top: calc(var(--header) + 0.75rem);
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-label h2,
+        .panel h2 {
+            margin: 0.35rem 0 0;
+            color: var(--ink);
+            font-size: 1.65rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .index {
+            margin: 0;
+            color: var(--accent);
+            font-size: 0.72rem;
+        }
+
+        .prose p,
+        .crew-lead,
+        .panel p {
+            margin: 0;
+        }
+
+        .prose p + p,
+        .panel p + p {
+            margin-top: 1.15rem;
+        }
+
+        .prose {
+            max-width: 40rem;
+            color: var(--body);
+        }
+
+        .crew-lead {
+            max-width: 38rem;
+            margin-top: 1.25rem;
+            color: var(--muted);
+        }
+
+        .manifest {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 2.4rem;
+            background: var(--hairline);
+            border: 1px solid var(--hairline);
+        }
+
+        .person {
+            min-height: 100%;
+            padding: 1.55rem 1.4rem 1.45rem;
+            background: var(--surface);
+        }
+
+        .person:hover,
+        .person:focus-within {
+            background: #f8fcfd;
+        }
+
+        .sigil {
+            display: block;
+            margin-bottom: 1.15rem;
+            color: var(--accent);
+        }
+
+        .person h3 {
+            margin: 0.85rem 0 0.2rem;
+            color: var(--ink);
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .role {
+            margin: 0;
+            color: var(--accent);
+            font-size: 0.68rem;
+        }
+
+        .person p:last-child {
+            margin: 0.8rem 0 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .watch {
+            padding-bottom: 5.5rem;
+        }
+
+        .panel {
+            position: relative;
+            max-width: 44rem;
+            padding: 2.6rem 2rem 2.3rem;
+            background:
+                radial-gradient(ellipse 80% 80% at 50% 0%, rgba(20, 147, 168, 0.1), transparent 62%),
+                var(--panel);
+            border: 1px solid #c5d8df;
+        }
+
+        .corner {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: var(--line);
+            border-style: solid;
+        }
+
+        .tl { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+        .tr { top: -1px; right: -1px; border-width: 1px 1px 0 0; }
+        .bl { bottom: -1px; left: -1px; border-width: 0 0 1px 1px; }
+        .br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+        .panel h2 {
+            margin-bottom: 0.9rem;
+        }
+
+        .panel p {
+            max-width: 36rem;
+            color: var(--body);
         }
 
         .status {
             display: inline-flex;
             align-items: center;
-            gap: 9px;
-
-            margin-bottom: 40px;
-
-            color: #7e9198;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
+            gap: 0.65rem;
+            margin: 1.6rem 0 0;
+            padding: 0.55rem 0.8rem;
+            border: 1px solid #9ec9d2;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--accent);
+            font-size: 0.72rem;
         }
 
-        .status-dot {
+        .dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #78f7d0;
-            box-shadow: 0 0 12px rgba(120, 247, 208, 0.8);
+            background: var(--line);
+            box-shadow: 0 0 8px var(--glow);
         }
 
-        h1 {
-            font-size: clamp(42px, 9vw, 82px);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            line-height: 1;
-
-            margin-bottom: 26px;
+        footer {
+            border-top: 1px solid var(--hairline);
+            padding: 1.6rem 0 2rem;
         }
 
-        h1 span {
-            color: #78f7d0;
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: baseline;
         }
 
-        .line {
-            width: 46px;
-            height: 1px;
-            background: #78f7d0;
-            margin: 0 auto 28px;
-
-            box-shadow: 0 0 10px rgba(120, 247, 208, 0.45);
-        }
-
-        .headline {
-            color: #d8e0e3;
-            font-size: 17px;
-            font-weight: 400;
-            letter-spacing: 0.06em;
-
-            margin-bottom: 14px;
-        }
-
-        .description {
-            max-width: 540px;
-            margin: 0 auto 38px;
-
-            color: #7f8d92;
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .contact {
-            display: inline-block;
-
-            padding: 14px 28px;
-
-            border: 1px solid #29383d;
-            border-radius: 3px;
-
-            color: #dffcf3;
-            text-decoration: none;
-
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-
-            transition: 0.25s ease;
-        }
-
-        .contact:hover {
-            border-color: #78f7d0;
-            background: rgba(120, 247, 208, 0.05);
-            box-shadow: 0 0 28px rgba(120, 247, 208, 0.08);
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 25px;
-            left: 0;
-            right: 0;
-
-            color: #3f4a4e;
-            font-size: 9px;
+        .foot strong {
+            color: var(--ink);
+            font-weight: 500;
             letter-spacing: 0.2em;
-            text-transform: uppercase;
+            font-size: 0.78rem;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                letter-spacing: 0.04em;
+        .footer-meta {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero .eyebrow,
+            .hero h1,
+            .hero .filament,
+            .hero .tagline,
+            .hero .dek,
+            .hero .briefing {
+                animation: rise 0.9s ease both;
             }
 
-            .description {
-                font-size: 13px;
+            .hero h1 { animation-delay: 0.06s; }
+            .hero .filament { animation-delay: 0.12s; }
+            .hero .tagline { animation-delay: 0.18s; }
+            .hero .dek { animation-delay: 0.24s; }
+            .hero .briefing { animation-delay: 0.3s; }
+
+            .hero .filament {
+                animation: rise 0.9s ease 0.12s both, glow 5.5s ease-in-out 1s infinite;
+            }
+
+            .dot {
+                animation: glow 4.8s ease-in-out infinite;
+            }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.55; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 900px) {
+            .split {
+                grid-template-columns: 1fr;
+                gap: 1.1rem;
+            }
+
+            .manifest {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .wrap {
+                width: min(1120px, calc(100% - 1.75rem));
+            }
+
+            header {
+                height: auto;
+            }
+
+            .bar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.9rem 0;
+                gap: 0.7rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 3.2rem 0 3.4rem;
+            }
+
+            .section {
+                scroll-margin-top: 7.5rem;
+            }
+
+            h1 {
+                letter-spacing: 0.06em;
+            }
+
+            .manifest {
+                grid-template-columns: 1fr;
+            }
+
+            .foot {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+
+            .panel {
+                padding: 2.1rem 1.2rem 1.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .briefing span {
+                transition: none;
             }
         }
     </style>
 </head>
-
 <body>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <main class="container">
-
-        <div class="status">
-            <span class="status-dot"></span>
-            Available for acquisition
+    <header>
+        <div class="wrap bar">
+            <a class="mark" href="#top" aria-label="SINGULAB, back to top">
+                <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7.25" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M5.5 11h11" stroke="#1493a8" stroke-width="1.2"/>
+                </svg>
+                SINGULAB
+            </a>
+            <nav aria-label="Sections">
+                <a href="#about">About</a>
+                <a href="#crew">Crew</a>
+                <a href="#watch">Watch</a>
+            </nav>
         </div>
+    </header>
 
-        <h1>SINGULAB<span>.AI</span></h1>
+    <main id="main">
+        <div class="wrap">
+            <section class="hero" id="top" aria-labelledby="series-title">
+                <p class="eyebrow">Thessaloniki · 2038</p>
+                <h1 id="series-title">SINGULAB</h1>
+                <div class="filament" aria-hidden="true"></div>
+                <p class="tagline">The future remembers.</p>
+                <p class="dek">An 18+ science fiction series about a laboratory above the city, and the six who keep it.</p>
+                <a class="briefing" href="#about">Read the briefing <span aria-hidden="true">→</span></a>
+            </section>
 
-        <div class="line"></div>
+            <section class="section" id="about" aria-labelledby="about-title">
+                <div class="split">
+                    <header class="section-label">
+                        <p class="index">01</p>
+                        <h2 id="about-title">About the series</h2>
+                    </header>
+                    <div class="prose">
+                        <p>In 2038 the city of Thessaloniki still meets the water the way it always has. Above that ordinary light, a laboratory is pursuing work that refuses a single name — part physics, part memory, part something the instruments were not built to expect.</p>
+                        <p>SINGULAB is that story, told at a measured pace. Conversations carry the weight. Discoveries arrive without fanfare, and they stay in the room afterward. The tone is closer to a starship briefing than a chase: precise, human, and unwilling to look away.</p>
+                        <p>It is a series for adults. Six presences share the facility. What they are building, and what is gathering around them, is the question the episodes keep.</p>
+                    </div>
+                </div>
+            </section>
 
-        <div class="headline">
-            A premium domain for an ambitious AI venture.
+            <section class="section" id="crew" aria-labelledby="crew-title">
+                <header class="section-label">
+                    <p class="index">02</p>
+                    <h2 id="crew-title">The crew</h2>
+                </header>
+                <p class="crew-lead">A short manifest. No one here is background.</p>
+                <div class="manifest">
+                    <article class="person">
+                        <svg class="sigil" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+                            <circle cx="18" cy="11" r="4" fill="none" stroke="currentColor" stroke-width="1.25"/>
+                            <path d="M8.5 28.5c1.4-6 4.8-8.5 9.5-8.5s8.1 2.5 9.5 8.5" fill="none" stroke="currentColor" stroke-width="1.25"/>
+                            <path d="M14 28.5h8" stroke="#1493a8" stroke-width="1.25"/>
+                        </svg>
+                        <p class="index">01</p>
+                        <h3>William</h3>
+                        <p class="role">Human scientist</p>
+                        <p>Lead of the laboratory. He keeps every question tied to a person who can answer for it.</p>
+                    </article>
+
+                    <article class="person">
+                        <svg class="sigil" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+                            <path d="M8 18 L13 8 L18 18 L23 8 L28 18" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                            <path d="M10 25h16" stroke="#1493a8" stroke-width="1.25"/>
+                        </svg>
+                        <p class="index">02</p>
+                        <h3>T'Ara</h3>
+                        <p class="role">Non-human</p>
+                        <p>Pointed ears, a white uniform traced in cyan. She is already on the next thought, and shares only what the moment can hold.</p>
+                    </article>
+
+                    <article class="person">
+                        <svg class="sigil" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+                            <rect x="6" y="13" width="24" height="10" rx="5" fill="none" stroke="currentColor" stroke-width="1.25"/>
+                            <path d="M9 18h18" stroke="#1493a8" stroke-width="1.25"/>
+                        </svg>
+                        <p class="index">03</p>
+                        <h3>Talos</h3>
+                        <p class="role">Android</p>
+                        <p>Smooth as white marble, with a black visor crossed by a single cyan line. Stillness, in him, is a kind of attention.</p>
+                    </article>
+
+                    <article class="person">
+                        <svg class="sigil" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+                            <path d="M8 22 L14 12 L22 20 L28 10" fill="none" stroke="currentColor" stroke-width="1.15"/>
+                            <circle cx="8" cy="22" r="1.6" fill="#1493a8"/>
+                            <circle cx="14" cy="12" r="1.6" fill="#1493a8"/>
+                            <circle cx="22" cy="20" r="1.6" fill="#1493a8"/>
+                            <circle cx="28" cy="10" r="1.6" fill="#1493a8"/>
+                        </svg>
+                        <p class="index">04</p>
+                        <h3>Omnia</h3>
+                        <p class="role">Being of light</p>
+                        <p>Luminous, translucent blue — a constellation willing to hold a shape. When she enters, the air looks briefly deeper.</p>
+                    </article>
+
+                    <article class="person">
+                        <svg class="sigil" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+                            <circle cx="18" cy="18" r="8" fill="none" stroke="currentColor" stroke-width="1.25"/>
+                            <circle cx="18" cy="18" r="1.7" fill="#1493a8"/>
+                        </svg>
+                        <p class="index">05</p>
+                        <h3>Archon</h3>
+                        <p class="role">Drone</p>
+                        <p>A white sphere, floating. It watches, carries, and acts with almost no ceremony.</p>
+                    </article>
+
+                    <article class="person">
+                        <svg class="sigil" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+                            <path d="M8 13h14M8 18h20M8 23h10" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                            <path d="M8 18h6" stroke="#1493a8" stroke-width="1.25" stroke-linecap="round"/>
+                        </svg>
+                        <p class="index">06</p>
+                        <h3>Nexus</h3>
+                        <p class="role">Facility computer</p>
+                        <p>Heard, not seen. A robotic voice that belongs to the building: doors, warnings, and the occasional fact no one requested.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section watch" id="watch" aria-labelledby="watch-title">
+                <div class="panel">
+                    <span class="corner tl" aria-hidden="true"></span>
+                    <span class="corner tr" aria-hidden="true"></span>
+                    <span class="corner bl" aria-hidden="true"></span>
+                    <span class="corner br" aria-hidden="true"></span>
+                    <p class="index">03</p>
+                    <h2 id="watch-title">Watch</h2>
+                    <p>The episodes are being prepared for YouTube. There is no official channel address to share yet, so this page does not link to one.</p>
+                    <p>When the series channel is public, its link will be placed here.</p>
+                    <p class="status"><span class="dot" aria-hidden="true"></span> Coming soon</p>
+                </div>
+            </section>
         </div>
-
-        <p class="description">
-            SINGULAB.AI is privately owned and available for acquisition.
-            Serious inquiries are welcome.
-        </p>
-
-        <a
-            class="contact"
-            href="mailto:imperialdynamics@gmail.com?subject=SINGULAB.AI%20Acquisition%20Inquiry">
-            Contact Owner
-        </a>
-
     </main>
 
-    <div class="footer">
-        SINGULAB.AI
-    </div>
-
+    <footer>
+        <div class="wrap foot">
+            <strong>SINGULAB</strong>
+            <p class="footer-meta">Science fiction series · Thessaloniki, 2038 · 18+</p>
+        </div>
+    </footer>
 </body>
 </html>
